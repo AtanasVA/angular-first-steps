@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <a [routerLink]="['/']">
+        <header class="brand-name">
+          <img
+            class="brand-logo"
+            src="/assets/logo.svg"
+            alt="logo"
+            aria-hidden="true"
+          />
+        </header>
+      </a>
+      <section class="content">
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+  </body>
+</html>
