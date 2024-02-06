@@ -12,15 +12,17 @@ import { HousingService } from '../housing.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-
   filteredLocationList: HousingLocation[] = [];
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
 
   constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    this.filteredLocationList = this.housingLocationList;
+    this.housingService
+      .getAllHousingLocations()
+      .then((housingLocations: HousingLocation[]) => {
+        this.housingLocationList = housingLocations;
+        this.filteredLocationList = this.housingLocationList;
+      });
   }
 
   filterResults(cityName: string) {
